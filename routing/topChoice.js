@@ -1,5 +1,5 @@
 var express = require('express');
-var Restaurant = require('/database/models/Restaurant').Restaurant;
+var Restaurant = require('../database/models/Restaurant').Restaurant;
 var router = express.Router();
 
 router.get('/:city', function(req, res) {
