@@ -12,6 +12,9 @@ server.use(bodyParser.json({limit:'500mb'}));
 const topChoice = require('./routing/topChoice').router;
 server.use('/topChoice', topChoice);
 
+const saveToDatabase = require('./routing/saveToDatabase').router;
+server.use('/saveToDatabase', saveToDatabase);
+
 server.listen(3000, function() {
   console.log('listening on 3000')
 });

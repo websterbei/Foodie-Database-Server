@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); 
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.json({limit:'500mb'}));
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/restaurants', {useMongoClient: true});
