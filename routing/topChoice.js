@@ -8,7 +8,7 @@ router.get('/:city', function(req, res) {
   var latitude = req.body.latitude;
   var distance = req.body.distance;
   var limit = 5;
-  Restaurant.ensureIndex({'location':'2dsphere'})
+  //Restaurant.ensureIndex({'location':'2dsphere'})
   Restaurant.find( {'coordinate':{$near: [longitude, latitude], $maxDistance:distance}}, function(err, restaurants) {
     if(err) res.send('Fail');
     else res.send(restaurants);
