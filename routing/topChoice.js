@@ -4,14 +4,15 @@ var router = express.Router();
 
 router.get('/:city', function(req, res) {
   var city = req.params.city;
-  var start = req.body.start; // starting index of the restaurant
-  var end = req.body.end; // ending index of the restaurant
-  if(!start) start = 1;
-  if(!end) end = 5;
-  Restaurant.find({_id:{$gte: start, $lte: end}}, function(err, restaurants) {
+  var longitude = req.body.longitude;
+  var latitude = req.body.latitude;
+  var distance = req.body.distance;
+  var limit = 5;
+  Restaurant.ensureIndex({'location':'2dsphere'})
+  Restaurant.find( {'coordinate':{$near: [longitude, latitude], $maxDistance:distance}}, function(err, restaurants) {
     if(err) res.send('Fail');
     else res.send(restaurants);
-  });
+  }).limit(limit);
 });
 
 exports.router = router;
