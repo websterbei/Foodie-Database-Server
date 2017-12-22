@@ -12,11 +12,12 @@ router.get('/:city', function(req, res) {
   console.log(latitude);
   console.log(distance);
   console.log(city);
+  Restaurant.ensureIndexes({'location':'2dsphere'});
   //Restaurant.ensureIndex({'location':'2dsphere'})
-  Restaurant.find( {'coordinate':{$near: [longitude, latitude], $maxDistance:distance}}, function(err, restaurants) {
+  Restaurant.find( {'coordinate':{$near: [longitude, latitude], $maxDistance:distance}}).limit(limit).exec(function(err, restaurants) {
     if(err) res.send('Fail');
     else res.send(restaurants);
-  }).limit(limit);
+  });
 });
 
 exports.router = router;
