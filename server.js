@@ -9,12 +9,16 @@ server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({limit:'500mb'}));
 
 //Routing
-const topChoice = require('./routing/topChoice').router;
-server.use('/topChoice', topChoice);
-
 const saveToDatabase = require('./routing/saveToDatabase').router;
 server.use('/saveToDatabase', saveToDatabase);
 
+const aroundMe = require('./routing/aroundMe').router;
+server.use('/aroundMe', aroundMe);
+
+const topMatch = require('./routing/topMatch').router;
+server.use('/topMatch', topMatch);
+
+//Running server
 server.listen(3000, function() {
   console.log('listening on 3000')
 });
