@@ -1,7 +1,7 @@
 var express = require('express');
 var Restaurant = require('../database/models/Restaurant').Restaurant;
 var router = express.Router();
-var getUserPreference = require('./userData/getUserPreference');
+var getUserPreference = require('./userData/userPreference');
 
 function computeScoreFactory(preference) {
   function computeScore(restaurant) {
@@ -11,6 +11,7 @@ function computeScoreFactory(preference) {
   }
   return computeScore;
 }
+
 router.get('/:city', function(req, res) {
   //Obtain post data
   var city = req.params.city;
