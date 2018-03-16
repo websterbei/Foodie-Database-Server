@@ -12,7 +12,7 @@ function computeScoreFactory(preference) {
   return computeScore;
 }
 
-router.get('/:city', function(req, res) {
+router.post('/:city', function(req, res) {
   //Obtain post data
   var city = req.params.city;
   var longitude = req.body.longitude;

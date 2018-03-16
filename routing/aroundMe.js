@@ -2,7 +2,7 @@ var express = require('express');
 var Restaurant = require('../database/models/Restaurant').Restaurant;
 var router = express.Router();
 
-router.get('/:city', function(req, res) {
+router.post('/:city', function(req, res) {
   var city = req.params.city;
   var longitude = req.body.longitude;
   var latitude = req.body.latitude;
