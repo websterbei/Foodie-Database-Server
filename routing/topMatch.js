@@ -23,7 +23,7 @@ router.get('/:city', function(req, res) {
   //Limit the number of restaurants returned
   var limit = 5;
   //Indexed search on 2d sphere
-  Restaurant.ensureIndexes({'location':'2dsphere'});
+  // Restaurant.ensureIndexes({'location':'2dsphere'});
   //compute score function
   var computeScore = computeScoreFactory(preference);
   //Build query string
