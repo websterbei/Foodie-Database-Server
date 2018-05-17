@@ -14,3 +14,5 @@ router.post('/', function(req, res) {
 		}
 	});
 });
+
+exports.router = router;
