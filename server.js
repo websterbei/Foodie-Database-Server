@@ -18,6 +18,9 @@ server.use('/aroundMe', aroundMe);
 const topMatch = require('./routing/topMatch').router;
 server.use('/topMatch', topMatch);
 
+const hasUserPreference = require('./routing/userData/hasUserPreference').router;
+server.use('/hasUserPreference', hasUserPreference);
+
 //Running server
 server.listen(3000, function() {
   console.log('listening on 3000')
