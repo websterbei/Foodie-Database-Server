@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Restaurant = require('../database/models/User').User;
+var Restaurant = require('../../database/models/User').User;
 
 router.post('/', function(req, res) {
 	var user = req.body.user;
