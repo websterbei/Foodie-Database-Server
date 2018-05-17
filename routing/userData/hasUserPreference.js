@@ -7,7 +7,7 @@ router.post('/', function(req, res) {
 	var queryString = {};
 	queryString.name = user;
 	User.find(queryString).exec(function(err, users) {
-		if(users!==[]) {
+		if(users.length>0) {
 			res.send({result: true});
 		} else {
 			res.send({result: false});
