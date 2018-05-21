@@ -21,6 +21,9 @@ server.use('/topMatch', topMatch);
 const hasUserPreference = require('./routing/userData/hasUserPreference').router;
 server.use('/hasUserPreference', hasUserPreference);
 
+const setUserPreference = require('./routing/userData/setUserPreference').router;
+server.use('/setUserPreference', setUserPreference);
+
 //Running server
 server.listen(3000, function() {
   console.log('listening on 3000')
