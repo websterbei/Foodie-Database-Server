@@ -3,6 +3,8 @@ const express = require('express');
 const db = require('./database/connector').mongoose;
 const server = express();
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var https = require('https');
 
 //Config
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
