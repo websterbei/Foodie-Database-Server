@@ -26,9 +26,9 @@ server.use('/setUserPreference', setUserPreference);
 
 //Running server
 var credentials = {
-    ca: fs.readFileSync('../wecode/ssl/tan90_tech.ca-bundle'),
-    key: fs.readFileSync('../wecode/ssl/webster.key'),
-    cert: fs.readFileSync('../wecode/ssl/tan90_tech.crt')
+    ca: fs.readFileSync('../../wecode/ssl/tan90_tech.ca-bundle'),
+    key: fs.readFileSync('../../wecode/ssl/webster.key'),
+    cert: fs.readFileSync('../../wecode/ssl/tan90_tech.crt')
 };
 
 var httpsServer = https.createServer(credentials, app);
