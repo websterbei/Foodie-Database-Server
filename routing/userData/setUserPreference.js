@@ -7,7 +7,7 @@ router.post('/', function(req, res) {
 	var preference = req.body.preference;
 	var queryString = {};
 	queryString.name = user;
-	User.update(queryString, {name: user, preference: JSON.stringify(preference)}).exec(function(err) {
+	User.update(queryString, {name: user, preference: JSON.stringify(preference)}, {upsert: true}).exec(function(err) {
 		if(err) {
 			res.send({result: false});
 		} else {
