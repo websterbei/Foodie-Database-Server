@@ -12,9 +12,8 @@ function computeScoreFactory(preference) {
   return computeScore;
 }
 
-router.post('/:city', function(req, res) {
+router.post('/', function(req, res) {
   //Obtain post data
-  var city = req.params.city;
   var longitude = req.body.longitude;
   var latitude = req.body.latitude;
   var user = req.body.user;
@@ -28,7 +27,6 @@ router.post('/:city', function(req, res) {
   var computeScore = computeScoreFactory(preference);
   //Build query string
   var queryString = {};
-  queryString.city = city;
   queryString.location = {$near: [longitude, latitude], $maxDistance: preference.distance/111};
   queryString.price = {$lt: preference.price*1.15}; //Accept 15% over price
 
