@@ -36,5 +36,5 @@ var credentials = {
 var httpsServer = https.createServer(credentials, server);
 
 httpsServer.listen(443, function() {
-  console.log("HTTPS server listening on port " + port);
+  console.log("HTTPS server listening on port " + 443);
 });
