@@ -33,7 +33,7 @@ var credentials = {
     cert: fs.readFileSync('../../wecode/ssl/tan90_tech.crt')
 };
 
-var httpsServer = https.createServer(credentials, app);
+var httpsServer = https.createServer(credentials, server);
 
 httpsServer.listen(443, function() {
   console.log("HTTPS server listening on port " + port);
