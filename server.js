@@ -25,6 +25,14 @@ const setUserPreference = require('./routing/userData/setUserPreference').router
 server.use('/setUserPreference', setUserPreference);
 
 //Running server
-server.listen(3000, function() {
-  console.log('listening on 3000')
+var credentials = {
+    ca: fs.readFileSync('../wecode/ssl/tan90_tech.ca-bundle'),
+    key: fs.readFileSync('../wecode/ssl/webster.key'),
+    cert: fs.readFileSync('../wecode/ssl/tan90_tech.crt')
+};
+
+var httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(443, function() {
+  console.log("HTTPS server listening on port " + port);
 });
